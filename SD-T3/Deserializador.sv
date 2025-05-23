@@ -13,7 +13,7 @@ DESERIALIZADOR:
 */
 
 module deserializador (
-    input logic data_in,
+    input logic [7:0] data_in,
     input logic write_in,
     input logic reset,
     input logic clock_100khz
