@@ -1,5 +1,12 @@
 # Trabalho-3 de Sistemas Digitais
+Esse é o projeto do trabalho
 
-Eduardo de Oliveira Pietro
+Feito por:
 
-Gabriel de Carvalho Woltmann
+        - Eduardo de Oliveira de Pietro  
+
+        - Gabriel de Carvalho Woltmann
+
+    /rtl: O main do projeto em hardware que contém os arquivos em SystemVerilog.
+
+Para executar:
