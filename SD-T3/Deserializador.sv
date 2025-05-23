@@ -1,3 +1,16 @@
+/*
+O trabalho consiste da integração de dois módulos funcionando sobre domínios de relógio diferentes. 
+Estes módulos são um DESERIALIZADOR e uma PILHA.
+
+DESERIALIZADOR:
+- Recebe sequência de bits pelo data_in.
+- Escreve palavras de 8 bits no sinal data_out.
+- status_out indica se o serializador está em condições de receber dados.
+- sinal write_in indica que o dado deve ser interpretado pelo deserializador.
+- Fio data_out possui 8 bits e representa a saída de dados do deserializador.
+- Sinal data_ready informa se os dados estão prontos para consumo quando está alto.
+- Sinal ack_in é escrito quando se confirma o dado recebido
+*/
 
 module deserializador (
     input logic data_in,
