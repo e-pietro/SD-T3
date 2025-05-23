@@ -1,0 +1,16 @@
+SUPOSTA LÓGICA
+
+DESERIALIZADOR (LÓGICA):
+-> verifica se esta em condicoes de receber dados 
+-> recebe sequencia de 8 bits 
+-> ack_in é escrito quando se confirma o dado recebido 
+-> indica que o dado deve ser intepretado 
+-> escreve palavras de 8 bits 
+-> informa se os dados estão prontos pra sair 
+-> dados saem
+
+FILA (LÓGICA):
+-> insere elementos na fila 
+-> ve se pode dar dequeue, se sim deve aparacer dado retirado no clock subsequente, isso se o n_elementos > 0
+-> remove itens da fila 
+-> atualiza o número de itens na fila
