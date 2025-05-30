@@ -12,7 +12,7 @@ DESERIALIZADOR:
 - Sinal ack_in é escrito quando se confirma o dado recebido
 */
 
-module Serializador (
+module Deserializador (
     input clk,
     input reset,
     input data_in,
