@@ -24,8 +24,7 @@ module Fila (
     typedef enum logic [1:0] { 
         IDLE      = 2'b00,
         ENQUEUE   = 2'b01,
-        DEQUEUE   = 2'b10,
-        BOTH      = 2'b11
+        DEQUEUE   = 2'b10
     } state_t;
 
     state_t current_state, next_state;
@@ -34,16 +33,20 @@ module Fila (
     logic [7:0] internal_len; //Posição
     logic [7:0] internal_data_out; //Bits
 
-    logic is_full = (internal_len == 8);
-    logic is_empty = (internal_len == 0);
+    logic is_full;
+    logic is_empty;
+
+    always_comb begin
+        is_full = (internal_len == 8);
+        is_empty = (internal_len == 0);
+    end
+
 
     always_comb begin
         next_state = IDLE;
         case (current_state)
             IDLE: begin
-                if (enqueue_in && !is_full && dequeue_in && !is_empty) begin
-                    next_state = BOTH;
-                end else if (enqueue_in && !is_full) begin
+                if (enqueue_in && !is_full) begin
                     next_state = ENQUEUE;
                 end else if (dequeue_in && !is_empty) begin
                     next_state = DEQUEUE;
@@ -53,7 +56,6 @@ module Fila (
             end
             ENQUEUE: next_state = IDLE;
             DEQUEUE: next_state = IDLE;
-            BOTH:    next_state = IDLE;
         endcase
     end
 
@@ -80,17 +82,6 @@ module Fila (
                     end
                     fila_mem[internal_len - 1] <= 8'b0;
                     internal_len <= internal_len - 1;
-                end
-                BOTH: begin
-                    internal_data_out <= fila_mem[0];
-                    
-                    // Desloca e adiciona na última posição
-                    for (int i = 0; i < 7; i++) begin
-                        fila_mem[i] <= fila_mem[i + 1];
-                    end
-                    fila_mem[internal_len - 1] <= data_in;
-                    // len fica igual (sai 1, entra 1)
-                    internal_len <= internal_len;
                 end
                 IDLE: begin
                     internal_data_out <= 8'b0; 
