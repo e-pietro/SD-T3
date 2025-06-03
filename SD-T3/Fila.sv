@@ -84,7 +84,7 @@ module Fila (
                     internal_len <= internal_len - 1;
                 end
                 IDLE: begin
-                    internal_data_out <= 8'b0; 
+                    
                 end
             endcase
         end
