@@ -41,7 +41,7 @@ Este projeto tem como objetivo desenvolver um sistema digital que integra dois m
 
 ### Como rodar
 
-1. Abra o projeto no Vivado.  
+1. Abra o projeto no Modelsim/Questa.  
 2. Execute o arquivo `sim.do` para rodar a simulação automaticamente.  
 3. Verifique os resultados no waveform.  
 4. Todos os módulos estão prontos para simulação.
